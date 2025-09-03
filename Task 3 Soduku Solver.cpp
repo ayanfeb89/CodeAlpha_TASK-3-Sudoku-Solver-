@@ -101,7 +101,7 @@ int main()
        }
        if(r<1 || r>MAX || c<1 || c>MAX || n<1 || n>MAX)
        {
-           cout<<"Error: Invalid choice, you are exploiting Sudoku rules"<<endl;
+           cout<<"Error: Invalid choice, the range is (1-9)"<<endl;
            continue;
        }
          r--;
@@ -131,7 +131,25 @@ int main()
    cin>>play;
    if(play==1)
    {
-       printboard(board);
+    int reset[MAX][MAX]={
+    {0, 9, 0, 6, 8, 0, 1, 0, 3},
+    {1, 0, 3, 0, 2, 9, 0, 4, 0},
+    {0, 4, 0, 3, 0, 5, 2, 0, 7},
+    {9, 0, 1, 0, 4, 0, 5, 6, 0},
+    {0, 6, 0, 1, 0, 3, 0, 7, 0},
+    {7, 0, 4, 0, 5, 0, 9, 0, 1},
+    {0, 7, 0, 4, 0, 8, 0, 1, 9},
+    {4, 0, 9, 0, 7, 0, 6, 0, 3},
+    {0, 1, 0, 9, 0, 2, 0, 8, 0}
+};
+for(int i=0;i<MAX;i++)
+{
+    for(int j=0;j<MAX;j++)
+    {
+        board[i][j]=reset[i][j];
+    }
+}
+printboard(board);
    }
    }while(play!=0);
 }
